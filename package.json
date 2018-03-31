@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "pomodoro study method",
   "main": "index.js",
+  "homepage": "https://wasafune.github.io/pomodoro/",
   "dependencies": {
     "assert": "^1.4.1",
     "babel-core": "^6.26.0",
