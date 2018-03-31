@@ -10,8 +10,9 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 module.exports = {
   entry: './client/index.jsx',
   output: {
-    path: path.resolve('docs'),
-    publicPath: '/',
+    path: path.resolve('src'),
+    // bugs with github pages if public path
+    // publicPath: '/',
     filename: 'bundle.js',
   },
   module: {
