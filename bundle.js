@@ -19394,7 +19394,7 @@ var Main = function (_Component) {
       sessionCount: 0,
       reset: true,
       error: ' ',
-      chime: new Audio('slow-spring-board.mp3')
+      chime: new Audio('https://freesound.org/people/shinephoenixstormcrow/sounds/337049/download/337049__shinephoenixstormcrow__320655-rhodesmas-level-up-01.mp3')
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.handleReset = _this.handleReset.bind(_this);
