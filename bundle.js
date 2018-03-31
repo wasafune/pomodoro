@@ -19394,7 +19394,7 @@ var Main = function (_Component) {
       sessionCount: 0,
       reset: true,
       error: ' ',
-      chime: new Audio('./slow-spring-board.mp3')
+      chime: new Audio('slow-spring-board.mp3')
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.handleReset = _this.handleReset.bind(_this);
