@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Input extends Component {
   constructor(props) {
@@ -10,6 +11,10 @@ class Input extends Component {
       bigRest: 15,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  componentWillMount() {
+    this.props.handleSubmit(Object.assign(this.state));
   }
 
   handleInputChange(event) {
@@ -92,5 +97,9 @@ class Input extends Component {
     );
   }
 }
+
+Input.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+};
 
 export default Input;

@@ -19474,8 +19474,8 @@ var Main = function (_Component) {
     value: function toggleStatus() {
       var state = this.state,
           setState = this.setState;
+      // if (state.currentSession === 'Offline') return;
 
-      if (state.currentSession === 'Offline') return;
       if (!state.sessionCount) {
         setState({ sessionCount: 1 });
       }

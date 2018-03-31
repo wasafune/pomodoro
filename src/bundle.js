@@ -19578,6 +19578,10 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = __webpack_require__(30);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -19607,7 +19611,12 @@ var Input = function (_Component) {
   }
 
   _createClass(Input, [{
-    key: "handleInputChange",
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      this.props.handleSubmit(Object.assign(this.state));
+    }
+  }, {
+    key: 'handleInputChange',
     value: function handleInputChange(event) {
       var target = event.target;
       var name = target.name;
@@ -19615,7 +19624,7 @@ var Input = function (_Component) {
       this.setState(_defineProperty({}, name, Number(target.value)));
     }
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       var _this2 = this;
 
@@ -19628,96 +19637,96 @@ var Input = function (_Component) {
 
 
       return _react2.default.createElement(
-        "div",
-        { id: "input" },
+        'div',
+        { id: 'input' },
         _react2.default.createElement(
-          "h2",
+          'h2',
           null,
-          "Input"
+          'Input'
         ),
         _react2.default.createElement(
-          "h3",
+          'h3',
           null,
-          "Study Duration:"
+          'Study Duration:'
         ),
         _react2.default.createElement(
-          "div",
-          { className: "input-group" },
-          "Minutes:",
-          _react2.default.createElement("input", {
-            className: "input-num",
-            type: "number",
-            name: "study",
+          'div',
+          { className: 'input-group' },
+          'Minutes:',
+          _react2.default.createElement('input', {
+            className: 'input-num',
+            type: 'number',
+            name: 'study',
             value: study,
             onChange: this.handleInputChange
           })
         ),
         _react2.default.createElement(
-          "h3",
+          'h3',
           null,
-          "Rest Duration:"
+          'Rest Duration:'
         ),
         _react2.default.createElement(
-          "div",
-          { className: "input-group" },
-          "Minutes:",
-          _react2.default.createElement("input", {
-            className: "input-num",
-            type: "number",
-            name: "rest",
+          'div',
+          { className: 'input-group' },
+          'Minutes:',
+          _react2.default.createElement('input', {
+            className: 'input-num',
+            type: 'number',
+            name: 'rest',
             value: rest,
             onChange: this.handleInputChange
           })
         ),
         _react2.default.createElement(
-          "h3",
+          'h3',
           null,
-          "Big Rest Intervals:"
+          'Big Rest Intervals:'
         ),
         _react2.default.createElement(
-          "div",
-          { className: "input-group" },
-          "Number of Sessions:",
-          _react2.default.createElement("input", {
-            className: "input-num",
-            type: "number",
-            name: "bigRestInterval",
+          'div',
+          { className: 'input-group' },
+          'Number of Sessions:',
+          _react2.default.createElement('input', {
+            className: 'input-num',
+            type: 'number',
+            name: 'bigRestInterval',
             value: bigRestInterval,
             onChange: this.handleInputChange
           })
         ),
         _react2.default.createElement(
-          "h3",
+          'h3',
           null,
-          "Big Rest Duration:"
+          'Big Rest Duration:'
         ),
         _react2.default.createElement(
-          "div",
-          { className: "input-group" },
-          "Minutes:",
-          _react2.default.createElement("input", {
-            className: "input-num",
-            type: "number",
-            name: "bigRest",
+          'div',
+          { className: 'input-group' },
+          'Minutes:',
+          _react2.default.createElement('input', {
+            className: 'input-num',
+            type: 'number',
+            name: 'bigRest',
             value: bigRest,
             onChange: this.handleInputChange
           })
         ),
-        _react2.default.createElement("br", null),
+        _react2.default.createElement('br', null),
         _react2.default.createElement(
-          "button",
+          'button',
           {
-            id: "input-submit",
-            className: "input-button",
+            id: 'input-submit',
+            className: 'input-button',
             onClick: function onClick() {
               props.handleSubmit(Object.assign(_this2.state));
             }
           },
-          "Submit/Edit"
+          'Submit/Edit'
         ),
         _react2.default.createElement(
-          "p",
-          { id: "input-error" },
+          'p',
+          { id: 'input-error' },
           props.error
         )
       );
@@ -19726,6 +19735,10 @@ var Input = function (_Component) {
 
   return Input;
 }(_react.Component);
+
+Input.propTypes = {
+  handleSubmit: _propTypes2.default.func.isRequired
+};
 
 exports.default = Input;
 
