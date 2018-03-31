@@ -28,12 +28,16 @@
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.6.1"
+    "eslint-plugin-react": "^7.6.1",
+    "gh-pages": "^1.1.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "webpack": "webpack --watch --config webpack.config.js"
+    "src": "webpack --config webpack.config.js",
+    "webpack": "webpack --watch --config webpack.config.js",
+    "predeploy": "npm run src",
+    "deploy": "gh-pages -d src"
   },
   "author": "Peter Lee",
   "license": "ISC"
