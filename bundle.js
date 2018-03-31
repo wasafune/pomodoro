@@ -19385,10 +19385,10 @@ var Main = function (_Component) {
     var _this = _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).call(this));
 
     _this.state = {
-      study: 0,
-      rest: 0,
-      bigRestInterval: 0,
-      bigRest: 0,
+      study: 25,
+      rest: 5,
+      bigRestInterval: 4,
+      bigRest: 15,
       status: 'Off',
       currentSession: 'Offline',
       sessionCount: 0,
