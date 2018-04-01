@@ -20436,7 +20436,6 @@ var Display = function (_Component) {
       ticker: null
     };
 
-    _this.timer = _this.timer.bind(_this);
     _this.resetTimer = _this.resetTimer.bind(_this);
     _this.resetSession = _this.resetSession.bind(_this);
     _this.setState = _this.setState.bind(_this);
@@ -20492,31 +20491,7 @@ var Display = function (_Component) {
         setState({ status: nextProps.status });
       }
       if (nextProps.status === 'On') state.ticker.postMessage(state.time);
-      // if (nextProps.status === 'On') this.timer();
       if (nextProps.status === 'Paused') this.resetTimer();
-    }
-  }, {
-    key: 'timer',
-    value: function timer() {
-      var _this3 = this;
-
-      var state = this.state,
-          props = this.props,
-          setState = this.setState;
-
-
-      var timerId = setInterval(function () {
-        if (state.time <= 0) {
-          _this3.resetTimer();
-          props.toggleStatus();
-          props.toggleSession();
-          props.handleChime();
-          return;
-        }
-        setState({ time: state.time -= 0.25 });
-      }, 250);
-
-      setState({ timerId: timerId });
     }
   }, {
     key: 'resetTimer',
@@ -20538,7 +20513,7 @@ var Display = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this4 = this;
+      var _this3 = this;
 
       var state = this.state,
           props = this.props;
@@ -20612,7 +20587,7 @@ var Display = function (_Component) {
             {
               onClick: function onClick() {
                 if (props.status === 'On') props.toggleStatus();
-                _this4.resetTimer();
+                _this3.resetTimer();
                 props.toggleSession();
               }
             },
@@ -20625,8 +20600,8 @@ var Display = function (_Component) {
               className: 'display-button',
               onClick: function onClick() {
                 if (props.status === 'On') props.toggleStatus();
-                _this4.resetTimer();
-                _this4.resetSession();
+                _this3.resetTimer();
+                _this3.resetSession();
               }
             },
             'Reset Session'
@@ -20638,7 +20613,7 @@ var Display = function (_Component) {
               className: 'display-button',
               onClick: function onClick() {
                 if (props.status === 'On') props.toggleStatus();
-                _this4.resetTimer();
+                _this3.resetTimer();
                 props.handleReset();
               }
             },
