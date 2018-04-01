@@ -65,7 +65,12 @@ class Main extends Component {
   }
 
   handleChime() {
-    this.state.chime.play();
+    const play = () => {
+      this.state.chime.play();
+    };
+    play();
+    setTimeout(play, 1500);
+    setTimeout(play, 3000);
   }
 
   toggleSession() {
