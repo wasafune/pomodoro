@@ -13,7 +13,6 @@ class Display extends Component {
       ticker: null,
     };
 
-    this.timer = this.timer.bind(this);
     this.resetTimer = this.resetTimer.bind(this);
     this.resetSession = this.resetSession.bind(this);
     this.setState = this.setState.bind(this);
@@ -58,25 +57,7 @@ class Display extends Component {
       setState({ status: nextProps.status });
     }
     if (nextProps.status === 'On') state.ticker.postMessage(state.time);
-    // if (nextProps.status === 'On') this.timer();
     if (nextProps.status === 'Paused') this.resetTimer();
-  }
-
-  timer() {
-    const { state, props, setState } = this;
-
-    const timerId = setInterval(() => {
-      if (state.time <= 0) {
-        this.resetTimer();
-        props.toggleStatus();
-        props.toggleSession();
-        props.handleChime();
-        return;
-      }
-      setState({ time: state.time -= 0.25 });
-    }, 250);
-
-    setState({ timerId });
   }
 
   resetTimer() {
