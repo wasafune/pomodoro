@@ -20419,7 +20419,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint-env browser */
 
 var Display = function (_Component) {
   _inherits(Display, _Component);
@@ -20432,7 +20432,8 @@ var Display = function (_Component) {
     _this.state = {
       time: false,
       status: '',
-      timerId: 0
+      timerId: 0,
+      ticker: null
     };
 
     _this.timer = _this.timer.bind(_this);
@@ -20443,6 +20444,39 @@ var Display = function (_Component) {
   }
 
   _createClass(Display, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      var _this2 = this;
+
+      var props = this.props,
+          setState = this.setState;
+
+
+      if (window.Worker) {
+        var ticker = new Worker('workers.js');
+        ticker.onmessage = function (m) {
+          console.log('msg received from timer');
+          var end = new Date().getTime() + m.data * 1000;
+
+          var timerId = setInterval(function () {
+            var now = new Date().getTime();
+            var diff = end - now;
+            if (diff <= 0) {
+              console.log('inside less than 0');
+              _this2.resetTimer();
+              props.toggleStatus();
+              props.toggleSession();
+              props.handleChime();
+              return;
+            }
+            setState({ time: Math.ceil(diff / 1000) });
+          }, 1000);
+          setState({ timerId: timerId });
+        };
+        this.setState({ ticker: ticker });
+      }
+    }
+  }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
       var state = this.state,
@@ -20459,13 +20493,14 @@ var Display = function (_Component) {
       if (nextProps.status !== state.status) {
         setState({ status: nextProps.status });
       }
-      if (nextProps.status === 'On') this.timer();
+      if (nextProps.status === 'On') state.ticker.postMessage(state.time);
+      // if (nextProps.status === 'On') this.timer();
       if (nextProps.status === 'Paused') this.resetTimer();
     }
   }, {
     key: 'timer',
     value: function timer() {
-      var _this2 = this;
+      var _this3 = this;
 
       var state = this.state,
           props = this.props,
@@ -20473,8 +20508,9 @@ var Display = function (_Component) {
 
 
       var timerId = setInterval(function () {
+        console.log(state.time);
         if (state.time <= 0) {
-          _this2.resetTimer();
+          _this3.resetTimer();
           props.toggleStatus();
           props.toggleSession();
           props.handleChime();
@@ -20505,7 +20541,7 @@ var Display = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       var state = this.state,
           props = this.props;
@@ -20579,7 +20615,7 @@ var Display = function (_Component) {
             {
               onClick: function onClick() {
                 if (props.status === 'On') props.toggleStatus();
-                _this3.resetTimer();
+                _this4.resetTimer();
                 props.toggleSession();
               }
             },
@@ -20592,8 +20628,8 @@ var Display = function (_Component) {
               className: 'display-button',
               onClick: function onClick() {
                 if (props.status === 'On') props.toggleStatus();
-                _this3.resetTimer();
-                _this3.resetSession();
+                _this4.resetTimer();
+                _this4.resetSession();
               }
             },
             'Reset Session'
@@ -20605,7 +20641,7 @@ var Display = function (_Component) {
               className: 'display-button',
               onClick: function onClick() {
                 if (props.status === 'On') props.toggleStatus();
-                _this3.resetTimer();
+                _this4.resetTimer();
                 props.handleReset();
               }
             },
