@@ -25,14 +25,12 @@ class Display extends Component {
     if (window.Worker) {
       const ticker = new Worker('workers.js');
       ticker.onmessage = (m) => {
-        console.log('msg received from timer');
         const end = new Date().getTime() + (m.data * 1000);
 
         const timerId = setInterval(() => {
           const now = new Date().getTime();
           const diff = end - now;
           if (diff <= 0) {
-            console.log('inside less than 0');
             this.resetTimer();
             props.toggleStatus();
             props.toggleSession();
@@ -68,7 +66,6 @@ class Display extends Component {
     const { state, props, setState } = this;
 
     const timerId = setInterval(() => {
-      console.log(state.time);
       if (state.time <= 0) {
         this.resetTimer();
         props.toggleStatus();
