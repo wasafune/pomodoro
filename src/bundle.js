@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 13);
+/******/ 	return __webpack_require__(__webpack_require__.s = 14);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -261,9 +261,9 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(14);
-} else {
   module.exports = __webpack_require__(15);
+} else {
+  module.exports = __webpack_require__(16);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -814,7 +814,7 @@ module.exports = shallowEqual;
  * 
  */
 
-var isTextNode = __webpack_require__(18);
+var isTextNode = __webpack_require__(19);
 
 /*eslint-disable no-bitwise */
 
@@ -845,6 +845,41 @@ module.exports = containsNode;
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+if (process.env.NODE_ENV !== 'production') {
+  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
+    Symbol.for &&
+    Symbol.for('react.element')) ||
+    0xeac7;
+
+  var isValidElement = function(object) {
+    return typeof object === 'object' &&
+      object !== null &&
+      object.$$typeof === REACT_ELEMENT_TYPE;
+  };
+
+  // By explicitly using `prop-types` you are opting into new development behavior.
+  // http://fb.me/prop-types-in-prod
+  var throwOnDirectAccess = true;
+  module.exports = __webpack_require__(30)(isValidElement, throwOnDirectAccess);
+} else {
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = __webpack_require__(31)();
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
@@ -852,9 +887,9 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(16);
+var _reactDom = __webpack_require__(17);
 
-var _App = __webpack_require__(25);
+var _App = __webpack_require__(26);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -870,7 +905,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // Styles
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -898,7 +933,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2263,7 +2298,7 @@ module.exports = react;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2301,15 +2336,15 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(17);
+  module.exports = __webpack_require__(18);
 } else {
-  module.exports = __webpack_require__(20);
+  module.exports = __webpack_require__(21);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2561,7 +2596,7 @@ ReactDOMEventListener:Zd},unstable_createRoot:function(a,b){return new sg(a,!0,n
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2576,7 +2611,7 @@ ReactDOMEventListener:Zd},unstable_createRoot:function(a,b){return new sg(a,!0,n
  * @typechecks
  */
 
-var isNode = __webpack_require__(19);
+var isNode = __webpack_require__(20);
 
 /**
  * @param {*} object The object to check.
@@ -2589,7 +2624,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2617,7 +2652,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2649,8 +2684,8 @@ var getActiveElement = __webpack_require__(10);
 var shallowEqual = __webpack_require__(11);
 var containsNode = __webpack_require__(12);
 var emptyObject = __webpack_require__(5);
-var hyphenateStyleName = __webpack_require__(21);
-var camelizeStyleName = __webpack_require__(23);
+var hyphenateStyleName = __webpack_require__(22);
+var camelizeStyleName = __webpack_require__(24);
 
 /**
  * WARNING: DO NOT manually require this module.
@@ -19145,7 +19180,7 @@ module.exports = reactDom;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19160,7 +19195,7 @@ module.exports = reactDom;
 
 
 
-var hyphenate = __webpack_require__(22);
+var hyphenate = __webpack_require__(23);
 
 var msPattern = /^ms-/;
 
@@ -19187,7 +19222,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19223,7 +19258,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19238,7 +19273,7 @@ module.exports = hyphenate;
 
 
 
-var camelize = __webpack_require__(24);
+var camelize = __webpack_require__(25);
 
 var msPattern = /^-ms-/;
 
@@ -19266,7 +19301,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19301,7 +19336,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19315,7 +19350,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Main = __webpack_require__(26);
+var _Main = __webpack_require__(27);
 
 var _Main2 = _interopRequireDefault(_Main);
 
@@ -19333,7 +19368,7 @@ function App() {
 exports.default = App;
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19349,15 +19384,15 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Title = __webpack_require__(27);
+var _Title = __webpack_require__(28);
 
 var _Title2 = _interopRequireDefault(_Title);
 
-var _Input = __webpack_require__(28);
+var _Input = __webpack_require__(29);
 
 var _Input2 = _interopRequireDefault(_Input);
 
-var _Display = __webpack_require__(29);
+var _Display = __webpack_require__(32);
 
 var _Display2 = _interopRequireDefault(_Display);
 
@@ -19526,7 +19561,7 @@ var Main = function (_Component) {
 exports.default = Main;
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19562,7 +19597,7 @@ var Title = function Title() {
 exports.default = Title;
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19578,7 +19613,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(30);
+var _propTypes = __webpack_require__(13);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -19743,278 +19778,7 @@ Input.propTypes = {
 exports.default = Input;
 
 /***/ }),
-/* 29 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(30);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Display = function (_Component) {
-  _inherits(Display, _Component);
-
-  function Display(props) {
-    _classCallCheck(this, Display);
-
-    var _this = _possibleConstructorReturn(this, (Display.__proto__ || Object.getPrototypeOf(Display)).call(this, props));
-
-    _this.state = {
-      time: false,
-      status: '',
-      timerId: 0
-    };
-
-    _this.timer = _this.timer.bind(_this);
-    _this.resetTimer = _this.resetTimer.bind(_this);
-    _this.resetSession = _this.resetSession.bind(_this);
-    _this.setState = _this.setState.bind(_this);
-    return _this;
-  }
-
-  _createClass(Display, [{
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
-      var state = this.state,
-          props = this.props,
-          setState = this.setState;
-
-      if (nextProps.reset) {
-        setState({ time: 0, status: 'Off' });
-        return;
-      }
-      if (nextProps.time && nextProps.currentSession !== props.currentSession) {
-        setState({ time: nextProps.time * 60 });
-      }
-      if (nextProps.status !== state.status) {
-        setState({ status: nextProps.status });
-      }
-      if (nextProps.status === 'On') this.timer();
-      if (nextProps.status === 'Paused') this.resetTimer();
-    }
-  }, {
-    key: 'timer',
-    value: function timer() {
-      var _this2 = this;
-
-      var state = this.state,
-          props = this.props,
-          setState = this.setState;
-
-
-      var timerId = setInterval(function () {
-        if (state.time <= 0) {
-          _this2.resetTimer();
-          props.toggleStatus();
-          props.toggleSession();
-          props.handleChime();
-          return;
-        }
-        setState({ time: state.time -= 0.25 });
-      }, 250);
-
-      setState({ timerId: timerId });
-    }
-  }, {
-    key: 'resetTimer',
-    value: function resetTimer() {
-      var state = this.state,
-          setState = this.setState;
-
-      clearInterval(state.timerId);
-      setState({ timerId: 0 });
-    }
-  }, {
-    key: 'resetSession',
-    value: function resetSession() {
-      var props = this.props,
-          setState = this.setState;
-
-      setState({ time: props.time * 60 });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this3 = this;
-
-      var state = this.state,
-          props = this.props;
-      var currentSession = props.currentSession;
-
-
-      var minutes = Math.floor(state.time / 60);
-      var seconds = Math.ceil(state.time % 60);
-      if (seconds === 60) {
-        minutes += 1;
-        seconds = '0';
-      }
-      if (minutes < 10) minutes = '0' + minutes;
-      if (seconds < 10) seconds = '0' + seconds;
-
-      var displaySession = currentSession[0].toUpperCase() + currentSession.slice(1);
-      if (displaySession === 'BigRest') displaySession = 'Big Session';
-
-      return _react2.default.createElement(
-        'div',
-        { id: 'display' },
-        _react2.default.createElement(
-          'h2',
-          null,
-          'Timer'
-        ),
-        _react2.default.createElement(
-          'h3',
-          null,
-          'Current Session: ',
-          displaySession
-        ),
-        _react2.default.createElement(
-          'h3',
-          null,
-          'Session Number: ',
-          props.sessionCount
-        ),
-        _react2.default.createElement(
-          'div',
-          { id: 'time-left-container' },
-          _react2.default.createElement(
-            'p',
-            { id: 'time-left' },
-            minutes,
-            ':',
-            seconds
-          ),
-          _react2.default.createElement(
-            'button',
-            { id: 'time-left-container-bottom', onClick: props.toggleStatus },
-            _react2.default.createElement(
-              'h3',
-              null,
-              'Timer: ',
-              props.status
-            )
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { id: 'button-cluster' },
-          _react2.default.createElement('br', null),
-          _react2.default.createElement(
-            'button',
-            { onClick: props.toggleStatus },
-            'Start/Pause'
-          ),
-          _react2.default.createElement(
-            'button',
-            {
-              onClick: function onClick() {
-                if (props.status === 'On') props.toggleStatus();
-                _this3.resetTimer();
-                props.toggleSession();
-              }
-            },
-            'Skip Session'
-          ),
-          _react2.default.createElement(
-            'button',
-            {
-              id: 'session-reset',
-              className: 'display-button',
-              onClick: function onClick() {
-                if (props.status === 'On') props.toggleStatus();
-                _this3.resetTimer();
-                _this3.resetSession();
-              }
-            },
-            'Reset Session'
-          ),
-          _react2.default.createElement(
-            'button',
-            {
-              id: 'reset',
-              className: 'display-button',
-              onClick: function onClick() {
-                if (props.status === 'On') props.toggleStatus();
-                _this3.resetTimer();
-                props.handleReset();
-              }
-            },
-            'Reset'
-          )
-        )
-      );
-    }
-  }]);
-
-  return Display;
-}(_react.Component);
-
-Display.propTypes = {
-  time: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.bool]).isRequired,
-  reset: _propTypes2.default.bool.isRequired,
-  currentSession: _propTypes2.default.string.isRequired,
-  status: _propTypes2.default.string.isRequired
-};
-
-exports.default = Display;
-
-/***/ }),
 /* 30 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-if (process.env.NODE_ENV !== 'production') {
-  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
-    Symbol.for &&
-    Symbol.for('react.element')) ||
-    0xeac7;
-
-  var isValidElement = function(object) {
-    return typeof object === 'object' &&
-      object !== null &&
-      object.$$typeof === REACT_ELEMENT_TYPE;
-  };
-
-  // By explicitly using `prop-types` you are opting into new development behavior.
-  // http://fb.me/prop-types-in-prod
-  var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(31)(isValidElement, throwOnDirectAccess);
-} else {
-  // By explicitly using `prop-types` you are opting into new production behavior.
-  // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(32)();
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20564,7 +20328,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20627,6 +20391,278 @@ module.exports = function() {
   return ReactPropTypes;
 };
 
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(13);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint-env browser */
+
+var Display = function (_Component) {
+  _inherits(Display, _Component);
+
+  function Display(props) {
+    _classCallCheck(this, Display);
+
+    var _this = _possibleConstructorReturn(this, (Display.__proto__ || Object.getPrototypeOf(Display)).call(this, props));
+
+    _this.state = {
+      time: false,
+      status: '',
+      timerId: 0,
+      ticker: null
+    };
+
+    _this.timer = _this.timer.bind(_this);
+    _this.resetTimer = _this.resetTimer.bind(_this);
+    _this.resetSession = _this.resetSession.bind(_this);
+    _this.setState = _this.setState.bind(_this);
+    return _this;
+  }
+
+  _createClass(Display, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      var _this2 = this;
+
+      var props = this.props,
+          setState = this.setState;
+
+
+      if (window.Worker) {
+        var ticker = new Worker('workers.js');
+        ticker.onmessage = function (m) {
+          console.log('msg received from timer');
+          var end = new Date().getTime() + m.data * 1000;
+
+          var timerId = setInterval(function () {
+            var now = new Date().getTime();
+            var diff = end - now;
+            if (diff <= 0) {
+              console.log('inside less than 0');
+              _this2.resetTimer();
+              props.toggleStatus();
+              props.toggleSession();
+              props.handleChime();
+              return;
+            }
+            setState({ time: Math.ceil(diff / 1000) });
+          }, 1000);
+          setState({ timerId: timerId });
+        };
+        this.setState({ ticker: ticker });
+      }
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      var state = this.state,
+          props = this.props,
+          setState = this.setState;
+
+      if (nextProps.reset) {
+        setState({ time: 0, status: 'Off' });
+        return;
+      }
+      if (nextProps.time && nextProps.currentSession !== props.currentSession) {
+        setState({ time: nextProps.time * 60 });
+      }
+      if (nextProps.status !== state.status) {
+        setState({ status: nextProps.status });
+      }
+      if (nextProps.status === 'On') state.ticker.postMessage(state.time);
+      // if (nextProps.status === 'On') this.timer();
+      if (nextProps.status === 'Paused') this.resetTimer();
+    }
+  }, {
+    key: 'timer',
+    value: function timer() {
+      var _this3 = this;
+
+      var state = this.state,
+          props = this.props,
+          setState = this.setState;
+
+
+      var timerId = setInterval(function () {
+        console.log(state.time);
+        if (state.time <= 0) {
+          _this3.resetTimer();
+          props.toggleStatus();
+          props.toggleSession();
+          props.handleChime();
+          return;
+        }
+        setState({ time: state.time -= 0.25 });
+      }, 250);
+
+      setState({ timerId: timerId });
+    }
+  }, {
+    key: 'resetTimer',
+    value: function resetTimer() {
+      var state = this.state,
+          setState = this.setState;
+
+      clearInterval(state.timerId);
+      setState({ timerId: 0 });
+    }
+  }, {
+    key: 'resetSession',
+    value: function resetSession() {
+      var props = this.props,
+          setState = this.setState;
+
+      setState({ time: props.time * 60 });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this4 = this;
+
+      var state = this.state,
+          props = this.props;
+      var currentSession = props.currentSession;
+
+
+      var minutes = Math.floor(state.time / 60);
+      var seconds = Math.ceil(state.time % 60);
+      if (seconds === 60) {
+        minutes += 1;
+        seconds = '0';
+      }
+      if (minutes < 10) minutes = '0' + minutes;
+      if (seconds < 10) seconds = '0' + seconds;
+
+      var displaySession = currentSession[0].toUpperCase() + currentSession.slice(1);
+      if (displaySession === 'BigRest') displaySession = 'Big Session';
+
+      return _react2.default.createElement(
+        'div',
+        { id: 'display' },
+        _react2.default.createElement(
+          'h2',
+          null,
+          'Timer'
+        ),
+        _react2.default.createElement(
+          'h3',
+          null,
+          'Current Session: ',
+          displaySession
+        ),
+        _react2.default.createElement(
+          'h3',
+          null,
+          'Session Number: ',
+          props.sessionCount
+        ),
+        _react2.default.createElement(
+          'div',
+          { id: 'time-left-container' },
+          _react2.default.createElement(
+            'p',
+            { id: 'time-left' },
+            minutes,
+            ':',
+            seconds
+          ),
+          _react2.default.createElement(
+            'button',
+            { id: 'time-left-container-bottom', onClick: props.toggleStatus },
+            _react2.default.createElement(
+              'h3',
+              null,
+              'Timer: ',
+              props.status
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { id: 'button-cluster' },
+          _react2.default.createElement('br', null),
+          _react2.default.createElement(
+            'button',
+            { onClick: props.toggleStatus },
+            'Start/Pause'
+          ),
+          _react2.default.createElement(
+            'button',
+            {
+              onClick: function onClick() {
+                if (props.status === 'On') props.toggleStatus();
+                _this4.resetTimer();
+                props.toggleSession();
+              }
+            },
+            'Skip Session'
+          ),
+          _react2.default.createElement(
+            'button',
+            {
+              id: 'session-reset',
+              className: 'display-button',
+              onClick: function onClick() {
+                if (props.status === 'On') props.toggleStatus();
+                _this4.resetTimer();
+                _this4.resetSession();
+              }
+            },
+            'Reset Session'
+          ),
+          _react2.default.createElement(
+            'button',
+            {
+              id: 'reset',
+              className: 'display-button',
+              onClick: function onClick() {
+                if (props.status === 'On') props.toggleStatus();
+                _this4.resetTimer();
+                props.handleReset();
+              }
+            },
+            'Reset'
+          )
+        )
+      );
+    }
+  }]);
+
+  return Display;
+}(_react.Component);
+
+Display.propTypes = {
+  time: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.bool]).isRequired,
+  reset: _propTypes2.default.bool.isRequired,
+  currentSession: _propTypes2.default.string.isRequired,
+  status: _propTypes2.default.string.isRequired
+};
+
+exports.default = Display;
 
 /***/ }),
 /* 33 */
