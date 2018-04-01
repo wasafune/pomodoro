@@ -19478,7 +19478,14 @@ var Main = function (_Component) {
   }, {
     key: 'handleChime',
     value: function handleChime() {
-      this.state.chime.play();
+      var _this2 = this;
+
+      var play = function play() {
+        _this2.state.chime.play();
+      };
+      play();
+      setTimeout(play, 1500);
+      setTimeout(play, 3000);
     }
   }, {
     key: 'toggleSession',
