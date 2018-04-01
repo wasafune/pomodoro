@@ -20455,14 +20455,12 @@ var Display = function (_Component) {
       if (window.Worker) {
         var ticker = new Worker('workers.js');
         ticker.onmessage = function (m) {
-          console.log('msg received from timer');
           var end = new Date().getTime() + m.data * 1000;
 
           var timerId = setInterval(function () {
             var now = new Date().getTime();
             var diff = end - now;
             if (diff <= 0) {
-              console.log('inside less than 0');
               _this2.resetTimer();
               props.toggleStatus();
               props.toggleSession();
@@ -20508,7 +20506,6 @@ var Display = function (_Component) {
 
 
       var timerId = setInterval(function () {
-        console.log(state.time);
         if (state.time <= 0) {
           _this3.resetTimer();
           props.toggleStatus();
