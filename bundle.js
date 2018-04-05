@@ -19429,7 +19429,7 @@ var Main = function (_Component) {
       sessionCount: 0,
       reset: true,
       error: ' ',
-      chime: new Audio('http://rpg.hamsterrepublic.com/wiki-images/8/8e/Confirm8-Bit.ogg')
+      chime: new Audio('http://soundbible.com/grab.php?id=1619&type=mp3')
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.handleReset = _this.handleReset.bind(_this);
@@ -19469,9 +19469,8 @@ var Main = function (_Component) {
     value: function handleReset() {
       this.setState({
         status: 'Off',
-        currentSession: 'Offline',
+        currentSession: 'study',
         sessionCount: 0,
-        reset: true,
         error: ' '
       });
     }
@@ -19484,8 +19483,7 @@ var Main = function (_Component) {
         _this2.state.chime.play();
       };
       play();
-      setTimeout(play, 1500);
-      setTimeout(play, 3000);
+      setTimeout(play, 2300);
     }
   }, {
     key: 'toggleSession',
@@ -19497,7 +19495,7 @@ var Main = function (_Component) {
           bigRestInterval = state.bigRestInterval;
 
 
-      if (currentSession === 'Offline' || currentSession === 'rest' || currentSession === 'bigRest') {
+      if (currentSession === 'Offline' || currentSession === 'rest' || currentSession === 'bigRest' || !state.sessionCount) {
         setState({
           currentSession: 'study',
           sessionCount: this.state.sessionCount += 1
@@ -19543,6 +19541,7 @@ var Main = function (_Component) {
           { id: 'main-body' },
           _react2.default.createElement(_Display2.default, {
             status: state.status,
+            study: state.study,
             currentSession: state.currentSession,
             sessionCount: state.sessionCount,
             reset: state.reset,
@@ -20444,6 +20443,7 @@ var Display = function (_Component) {
     };
 
     _this.resetTimer = _this.resetTimer.bind(_this);
+    _this.resetClock = _this.resetClock.bind(_this);
     _this.resetSession = _this.resetSession.bind(_this);
     _this.setState = _this.setState.bind(_this);
     return _this;
@@ -20508,6 +20508,14 @@ var Display = function (_Component) {
 
       clearInterval(state.timerId);
       setState({ timerId: 0 });
+    }
+  }, {
+    key: 'resetClock',
+    value: function resetClock() {
+      var props = this.props,
+          setState = this.setState;
+
+      setState({ time: props.study * 60 });
     }
   }, {
     key: 'resetSession',
@@ -20621,6 +20629,7 @@ var Display = function (_Component) {
               onClick: function onClick() {
                 if (props.status === 'On') props.toggleStatus();
                 _this3.resetTimer();
+                _this3.resetClock();
                 props.handleReset();
               }
             },
