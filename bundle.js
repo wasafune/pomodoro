@@ -20625,7 +20625,8 @@ var Display = function (_Component) {
               }
             },
             'Reset'
-          )
+          ),
+          _react2.default.createElement('img', { src: 'https://myanimelist.cdn-dena.com/images/manga/1/157931.jpg', alt: 'random' })
         )
       );
     }
