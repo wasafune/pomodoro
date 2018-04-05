@@ -21,7 +21,7 @@ class Main extends Component {
       sessionCount: 0,
       reset: true,
       error: ' ',
-      chime: new Audio('https://freesound.org/people/shinephoenixstormcrow/sounds/337049/download/337049__shinephoenixstormcrow__320655-rhodesmas-level-up-01.mp3'),
+      chime: new Audio('http://soundbible.com/grab.php?id=1619&type=mp3'),
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleReset = this.handleReset.bind(this);
@@ -57,9 +57,8 @@ class Main extends Component {
   handleReset() {
     this.setState({
       status: 'Off',
-      currentSession: 'Offline',
+      currentSession: 'study',
       sessionCount: 0,
-      reset: true,
       error: ' ',
     });
   }
@@ -69,15 +68,14 @@ class Main extends Component {
       this.state.chime.play();
     };
     play();
-    setTimeout(play, 1500);
-    setTimeout(play, 3000);
+    setTimeout(play, 2300);
   }
 
   toggleSession() {
     const { state, setState } = this;
     const { currentSession, sessionCount, bigRestInterval } = state;
 
-    if (currentSession === 'Offline' || currentSession === 'rest' || currentSession === 'bigRest') {
+    if (currentSession === 'Offline' || currentSession === 'rest' || currentSession === 'bigRest' || !state.sessionCount) {
       setState({
         currentSession: 'study',
         sessionCount: this.state.sessionCount += 1,
@@ -115,6 +113,7 @@ class Main extends Component {
         <div id="main-body">
           <Display
             status={state.status}
+            study={state.study}
             currentSession={state.currentSession}
             sessionCount={state.sessionCount}
             reset={state.reset}
