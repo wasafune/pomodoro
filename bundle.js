@@ -19429,7 +19429,7 @@ var Main = function (_Component) {
       sessionCount: 0,
       reset: true,
       error: ' ',
-      chime: new Audio('https://freesound.org/people/shinephoenixstormcrow/sounds/337049/download/337049__shinephoenixstormcrow__320655-rhodesmas-level-up-01.mp3')
+      chime: new Audio('http://rpg.hamsterrepublic.com/wiki-images/8/8e/Confirm8-Bit.ogg')
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.handleReset = _this.handleReset.bind(_this);
@@ -20625,8 +20625,7 @@ var Display = function (_Component) {
               }
             },
             'Reset'
-          ),
-          _react2.default.createElement('img', { src: 'https://myanimelist.cdn-dena.com/images/manga/1/157931.jpg', alt: 'random' })
+          )
         )
       );
     }
