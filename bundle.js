@@ -65,6 +65,21 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(15);
+} else {
+  module.exports = __webpack_require__(16);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -252,21 +267,6 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(15);
-} else {
-  module.exports = __webpack_require__(16);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 2 */
@@ -465,7 +465,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 module.exports = invariant;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 5 */
@@ -489,7 +489,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = emptyObject;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 6 */
@@ -558,7 +558,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = warning;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 7 */
@@ -625,7 +625,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 
 module.exports = checkPropTypes;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 8 */
@@ -874,7 +874,7 @@ if (process.env.NODE_ENV !== 'production') {
   module.exports = __webpack_require__(31)();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 14 */
@@ -883,7 +883,7 @@ if (process.env.NODE_ENV !== 'production') {
 "use strict";
 
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -893,7 +893,7 @@ var _App = __webpack_require__(26);
 
 var _App2 = _interopRequireDefault(_App);
 
-__webpack_require__(34);
+__webpack_require__(35);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2295,7 +2295,7 @@ module.exports = react;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 17 */
@@ -2341,7 +2341,7 @@ if (process.env.NODE_ENV === 'production') {
   module.exports = __webpack_require__(21);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 18 */
@@ -2360,7 +2360,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var ba=__webpack_require__(1),m=__webpack_require__(9),A=__webpack_require__(3),C=__webpack_require__(2),ea=__webpack_require__(10),fa=__webpack_require__(11),ha=__webpack_require__(12),ja=__webpack_require__(5);
+var ba=__webpack_require__(0),m=__webpack_require__(9),A=__webpack_require__(3),C=__webpack_require__(2),ea=__webpack_require__(10),fa=__webpack_require__(11),ha=__webpack_require__(12),ja=__webpack_require__(5);
 function D(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}ba?void 0:D("227");
 function ka(a,b,c,d,e,f,h,g,k){this._hasCaughtError=!1;this._caughtError=null;var v=Array.prototype.slice.call(arguments,3);try{b.apply(c,v)}catch(l){this._caughtError=l,this._hasCaughtError=!0}}
 var E={_caughtError:null,_hasCaughtError:!1,_rethrowError:null,_hasRethrowError:!1,invokeGuardedCallback:function(a,b,c,d,e,f,h,g,k){ka.apply(E,arguments)},invokeGuardedCallbackAndCatchFirstError:function(a,b,c,d,e,f,h,g,k){E.invokeGuardedCallback.apply(this,arguments);if(E.hasCaughtError()){var v=E.clearCaughtError();E._hasRethrowError||(E._hasRethrowError=!0,E._rethrowError=v)}},rethrowCaughtError:function(){return ma.apply(E,arguments)},hasCaughtError:function(){return E._hasCaughtError},clearCaughtError:function(){if(E._hasCaughtError){var a=
@@ -2673,7 +2673,7 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var React = __webpack_require__(1);
+var React = __webpack_require__(0);
 var invariant = __webpack_require__(4);
 var warning = __webpack_require__(6);
 var ExecutionEnvironment = __webpack_require__(9);
@@ -19177,7 +19177,7 @@ module.exports = reactDom;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 22 */
@@ -19346,7 +19346,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -19380,7 +19380,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -19399,6 +19399,10 @@ var _Display2 = _interopRequireDefault(_Display);
 var _Description = __webpack_require__(33);
 
 var _Description2 = _interopRequireDefault(_Description);
+
+var _Footer = __webpack_require__(34);
+
+var _Footer2 = _interopRequireDefault(_Footer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19483,7 +19487,9 @@ var Main = function (_Component) {
         _this2.state.chime.play();
       };
       play();
-      setTimeout(play, 2300);
+      setTimeout(play, 2500);
+      setTimeout(play, 5600);
+      setTimeout(play, 8100);
     }
   }, {
     key: 'toggleSession',
@@ -19556,7 +19562,8 @@ var Main = function (_Component) {
             handleSubmit: this.handleSubmit
           })
         ),
-        _react2.default.createElement(_Description2.default, null)
+        _react2.default.createElement(_Description2.default, null),
+        _react2.default.createElement(_Footer2.default, null)
       );
     }
   }]);
@@ -19577,7 +19584,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -19615,7 +19622,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -20331,7 +20338,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
   return ReactPropTypes;
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 31 */
@@ -20411,7 +20418,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -20663,7 +20670,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -20684,7 +20691,7 @@ var Description = function Description() {
     ),
     _react2.default.createElement(
       'p',
-      null,
+      { id: 'description-body' },
       '\xA0\xA0\xA0',
       para1,
       _react2.default.createElement('br', null),
@@ -20717,8 +20724,40 @@ exports.default = Description;
 /* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
 
-var content = __webpack_require__(35);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Footer = function Footer() {
+  return _react2.default.createElement(
+    "div",
+    { id: "footer" },
+    _react2.default.createElement(
+      "a",
+      { className: "gh-link", href: "https://github.com/wasafune/pomodoro", target: "_blank", rel: "noopener noreferrer" },
+      _react2.default.createElement("i", { className: "fa fa-github" }),
+      "GitHub"
+    )
+  );
+};
+
+exports.default = Footer;
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(36);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -20732,7 +20771,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(37)(content, options);
+var update = __webpack_require__(38)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -20764,21 +20803,21 @@ if(false) {
 }
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(36)(false);
+exports = module.exports = __webpack_require__(37)(false);
 // imports
 
 
 // module
-exports.push([module.i, "#input {\n  display: flex;\n  flex-direction: column;\n  background-color: #B2A28B;\n  width: 300px;\n  margin: 10px 40px 10px 0;\n  padding: 6px 0 6px 0;\n  border-style: solid;\n  border-width: thin;\n  border-radius: 7px;\n  border-color: #938876;\n  box-shadow: 2px 2px 4px #254E58;\n}\n#input h2 {\n  margin: 6px 0 6px 0;\n  color: #3D3D3D;\n}\n#input h3 {\n  color: #3D3D3D;\n}\n#input #input-error {\n  white-space: pre;\n  color: red;\n}\n#input-form {\n  display: flex;\n  max-width: 600px;\n  padding: 15px 5px 15px 15px;\n  flex-direction: column;\n}\n.input-group {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\n.input-num {\n  margin: 5px;\n  padding-left: 5px;\n  height: 24px;\n  font-size: 17px;\n  width: 3em;\n}\n#display {\n  display: flex;\n  flex-direction: column;\n  background-color: #F9F1E0;\n  margin: 10px 0 10px 40px;\n  padding: 6px 0 6px 0;\n  border-style: solid;\n  border-width: thin;\n  border-radius: 7px;\n  border-color: #B2A28B;\n  box-shadow: 2px 2px 4px #254E58;\n}\n#time-left-container {\n  flex-direction: column;\n  background-color: #4F4A41;\n  margin: 12px 0 4px 0;\n  padding: 0px 22px 3px 22px;\n  border-style: solid;\n  border-width: 1px;\n  border-color: #B2A28B;\n}\n#time-left-container #time-left-container-bottom {\n  justify-content: center;\n  width: 100%;\n  padding: 0 10px 6px 10px;\n  margin: 0 0 3px 0;\n  border-radius: 0;\n  background-color: #B2A28B;\n}\n#button-cluster {\n  padding: 10px 12px 6px 12px;\n}\n#time-left {\n  font-size: 150px;\n  font-family: \"Inconsolata\";\n  color: #EFFCEC;\n}\n#main {\n  flex-direction: column;\n  width: 100%;\n  background-color: #88BDBC;\n}\n#main-body {\n  flex-direction: row;\n  width: 100%;\n  justify-content: space-around;\n  flex-wrap: wrap;\n  background-color: #88BDBC;\n}\n#title {\n  flex-direction: column;\n  background-color: #254E58;\n  width: 100%;\n  padding: 5px 0 5px;\n  margin: 0 0 20px 0;\n  border-style: solid;\n  border-width: thin;\n  border-color: #112D32;\n  box-shadow: 0 2px 4px #254E58;\n}\n#title h1 {\n  font-size: 42px;\n  color: #EFFCEC;\n}\n#title p {\n  font-size: 22px;\n  color: #EFFCEC;\n}\n#description {\n  flex-direction: column;\n  width: 90%;\n  background-color: #22707C;\n  margin: 45px 10px 25px 10px;\n  padding: 10px;\n  border-style: solid;\n  border-width: thin;\n  border-radius: 7px;\n  border-color: #254E58;\n  box-shadow: 2px 2px 4px #254E58;\n}\n#description h2 {\n  color: #EFFCEC;\n}\n#description p {\n  color: #EFFCEC;\n  margin: 10px 30px 10px 30px;\n}\n#description #source {\n  color: #F2E9D7;\n  font-style: italic;\n}\n#description a {\n  color: #F2E9D7;\n}\n* {\n  margin: 0;\n  padding: 0;\n  font-family: \"Montserrat\";\n  color: #2b2b2b;\n}\nbody {\n  background-color: #88BDBC;\n}\ndiv {\n  display: flex;\n  align-items: center;\n}\nbutton {\n  padding: 4px 4px 4px 4px;\n  margin: 4px 4px 4px 4px;\n  border-radius: 5px;\n  font-size: 16px;\n  width: 9em;\n}\nh2 {\n  margin: 3px 0 3px 0;\n  font-size: 26px;\n  font-weight: 1000;\n}\nh3 {\n  margin: 10px 0 0 0;\n}\n#app {\n  flex-direction: column;\n  width: 100%;\n}\n", ""]);
+exports.push([module.i, "#input {\n  display: flex;\n  flex-direction: column;\n  background-color: #B2A28B;\n  width: 300px;\n  margin: 10px 20px 10px 20px;\n  padding: 6px 0 6px 0;\n  border-style: solid;\n  border-width: thin;\n  border-radius: 7px;\n  border-color: #938876;\n  box-shadow: 2px 2px 4px #254E58;\n}\n#input h2 {\n  margin: 6px 0 6px 0;\n  color: #3D3D3D;\n}\n#input h3 {\n  color: #3D3D3D;\n}\n#input #input-error {\n  white-space: pre;\n  color: red;\n}\n#input-form {\n  display: flex;\n  max-width: 600px;\n  padding: 15px 5px 15px 15px;\n  flex-direction: column;\n}\n.input-group {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\n.input-num {\n  margin: 5px;\n  padding-left: 5px;\n  height: 24px;\n  font-size: 17px;\n  width: 3em;\n}\n#display {\n  flex-direction: column;\n  background-color: #F9F1E0;\n  margin: 10px 20px 10px 20px;\n  padding: 6px 0 6px 0;\n  border-style: solid;\n  border-width: thin;\n  border-radius: 7px;\n  border-color: #B2A28B;\n  box-shadow: 2px 2px 4px #254E58;\n}\n#time-left-container {\n  flex-direction: column;\n  background-color: #4F4A41;\n  margin: 12px 0 4px 0;\n  padding: 0px 22px 3px 22px;\n  border-style: solid;\n  border-width: 1px;\n  border-color: #B2A28B;\n}\n#time-left-container #time-left-container-bottom {\n  justify-content: center;\n  width: 100%;\n  padding: 0 10px 6px 10px;\n  margin: 0 0 3px 0;\n  border-radius: 0;\n  background-color: #B2A28B;\n}\n#button-cluster {\n  padding: 10px 12px 6px 12px;\n}\n#time-left {\n  font-size: 150px;\n  font-family: \"Inconsolata\";\n  color: #EFFCEC;\n}\n#main {\n  flex-direction: column;\n  width: 100%;\n  background-color: #88BDBC;\n}\n#main-body {\n  flex-direction: row;\n  width: 100%;\n  justify-content: center;\n  flex-wrap: wrap;\n  background-color: #88BDBC;\n}\n#title {\n  flex-direction: column;\n  background-color: #254E58;\n  width: 100%;\n  padding: 5px 0 5px;\n  margin: 0 0 20px 0;\n  border-bottom-style: solid;\n  border-width: thin;\n  border-color: #112D32;\n  box-shadow: 0 2px 4px #254E58;\n}\n#title h1 {\n  font-size: 42px;\n  color: #EFFCEC;\n}\n#title p {\n  font-size: 22px;\n  color: #EFFCEC;\n}\n#description {\n  flex-direction: column;\n  width: 75%;\n  background-color: #22707C;\n  margin: 45px 10px 25px 10px;\n  padding: 10px;\n  border-style: solid;\n  border-width: thin;\n  border-radius: 7px;\n  border-color: #254E58;\n  box-shadow: 2px 2px 4px #254E58;\n}\n#description h2 {\n  color: #EFFCEC;\n  margin: 15px 0 12px 0;\n}\n#description p {\n  color: #EFFCEC;\n  margin: 10px 0 10px 0;\n}\n#description #description-body {\n  width: 84%;\n}\n#description #source {\n  color: #F2E9D7;\n  font-style: italic;\n}\n#description a {\n  color: #F2E9D7;\n}\n#footer {\n  background-color: #254E58;\n  width: 100%;\n  margin: 20px 0 0 0;\n  padding: 4px 0 4px 0;\n  border-top-style: solid;\n  border-width: thin;\n  border-color: #112D32;\n  border-top-left-radius: 3px;\n  border-top-right-radius: 3px;\n  justify-content: center;\n}\n.gh-link:hover {\n  text-shadow: 2px 2px 2px #2b2b2b;\n}\n.fa-github::before {\n  font-size: 20px;\n  color: #EFFCEC;\n  margin: 0 5px 0 0;\n}\n* {\n  margin: 0;\n  padding: 0;\n  font-family: \"Montserrat\";\n  color: #2b2b2b;\n}\nbody {\n  background-color: #254E58;\n}\ndiv {\n  display: flex;\n  align-items: center;\n}\nbutton {\n  padding: 4px 4px 4px 4px;\n  margin: 4px 4px 4px 4px;\n  border-radius: 5px;\n  font-size: 16px;\n  width: 9em;\n}\nh2 {\n  margin: 3px 0 3px 0;\n  font-size: 26px;\n  font-weight: 1000;\n}\nh3 {\n  margin: 10px 0 0 0;\n}\na {\n  color: #EFFCEC;\n  text-decoration: none;\n}\na:hover {\n  color: white;\n  text-shadow: 3px 3px 3px #254E58;\n}\n#app {\n  flex-direction: column;\n  width: 100%;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports) {
 
 /*
@@ -20860,7 +20899,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -20926,7 +20965,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(38);
+var	fixUrls = __webpack_require__(39);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -21242,7 +21281,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports) {
 
 
