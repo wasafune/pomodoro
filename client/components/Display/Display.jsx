@@ -14,6 +14,7 @@ class Display extends Component {
     };
 
     this.resetTimer = this.resetTimer.bind(this);
+    this.resetClock = this.resetClock.bind(this);
     this.resetSession = this.resetSession.bind(this);
     this.setState = this.setState.bind(this);
   }
@@ -64,6 +65,11 @@ class Display extends Component {
     const { state, setState } = this;
     clearInterval(state.timerId);
     setState({ timerId: 0 });
+  }
+
+  resetClock() {
+    const { props, setState } = this;
+    setState({ time: props.study * 60 });
   }
 
   resetSession() {
@@ -128,6 +134,7 @@ class Display extends Component {
             onClick={() => {
               if (props.status === 'On') props.toggleStatus();
               this.resetTimer();
+              this.resetClock();
               props.handleReset();
             }}
           >

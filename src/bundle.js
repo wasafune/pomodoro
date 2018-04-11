@@ -19429,7 +19429,7 @@ var Main = function (_Component) {
       sessionCount: 0,
       reset: true,
       error: ' ',
-      chime: new Audio('https://freesound.org/people/shinephoenixstormcrow/sounds/337049/download/337049__shinephoenixstormcrow__320655-rhodesmas-level-up-01.mp3')
+      chime: new Audio('http://soundbible.com/grab.php?id=1619&type=mp3')
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.handleReset = _this.handleReset.bind(_this);
@@ -19469,9 +19469,8 @@ var Main = function (_Component) {
     value: function handleReset() {
       this.setState({
         status: 'Off',
-        currentSession: 'Offline',
+        currentSession: 'study',
         sessionCount: 0,
-        reset: true,
         error: ' '
       });
     }
@@ -19484,8 +19483,7 @@ var Main = function (_Component) {
         _this2.state.chime.play();
       };
       play();
-      setTimeout(play, 1500);
-      setTimeout(play, 3000);
+      setTimeout(play, 2300);
     }
   }, {
     key: 'toggleSession',
@@ -19497,7 +19495,7 @@ var Main = function (_Component) {
           bigRestInterval = state.bigRestInterval;
 
 
-      if (currentSession === 'Offline' || currentSession === 'rest' || currentSession === 'bigRest') {
+      if (currentSession === 'Offline' || currentSession === 'rest' || currentSession === 'bigRest' || !state.sessionCount) {
         setState({
           currentSession: 'study',
           sessionCount: this.state.sessionCount += 1
@@ -19543,6 +19541,7 @@ var Main = function (_Component) {
           { id: 'main-body' },
           _react2.default.createElement(_Display2.default, {
             status: state.status,
+            study: state.study,
             currentSession: state.currentSession,
             sessionCount: state.sessionCount,
             reset: state.reset,
@@ -20444,6 +20443,7 @@ var Display = function (_Component) {
     };
 
     _this.resetTimer = _this.resetTimer.bind(_this);
+    _this.resetClock = _this.resetClock.bind(_this);
     _this.resetSession = _this.resetSession.bind(_this);
     _this.setState = _this.setState.bind(_this);
     return _this;
@@ -20508,6 +20508,14 @@ var Display = function (_Component) {
 
       clearInterval(state.timerId);
       setState({ timerId: 0 });
+    }
+  }, {
+    key: 'resetClock',
+    value: function resetClock() {
+      var props = this.props,
+          setState = this.setState;
+
+      setState({ time: props.study * 60 });
     }
   }, {
     key: 'resetSession',
@@ -20621,6 +20629,7 @@ var Display = function (_Component) {
               onClick: function onClick() {
                 if (props.status === 'On') props.toggleStatus();
                 _this3.resetTimer();
+                _this3.resetClock();
                 props.handleReset();
               }
             },
@@ -20763,7 +20772,7 @@ exports = module.exports = __webpack_require__(36)(false);
 
 
 // module
-exports.push([module.i, "#input {\n  display: flex;\n  flex-direction: column;\n  background-color: #B2A28B;\n  width: 300px;\n  margin: 10px 0 10px 0;\n  padding: 6px 0 6px 0;\n  border-style: solid;\n  border-width: 1px;\n  border-color: #938876;\n}\n#input h2 {\n  margin: 6px 0 6px 0;\n  color: #3D3D3D;\n}\n#input h3 {\n  color: #3D3D3D;\n}\n#input #input-error {\n  white-space: pre;\n  color: red;\n}\n#input-form {\n  display: flex;\n  max-width: 600px;\n  padding: 15px 5px 15px 15px;\n  flex-direction: column;\n}\n.input-group {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\n.input-num {\n  margin: 5px;\n  padding-left: 5px;\n  height: 24px;\n  font-size: 17px;\n  width: 3em;\n}\n#display {\n  display: flex;\n  flex-direction: column;\n  background-color: #F9F1E0;\n  margin: 10px 0 10px 0;\n  padding: 6px 0 6px 0;\n  border-style: solid;\n  border-width: 1px;\n  border-color: #B2A28B;\n}\n#time-left-container {\n  flex-direction: column;\n  background-color: #4F4A41;\n  margin: 12px 0 4px 0;\n  padding: 0px 22px 3px 22px;\n  border-style: solid;\n  border-width: 1px;\n  border-color: #B2A28B;\n}\n#time-left-container #time-left-container-bottom {\n  justify-content: center;\n  width: 100%;\n  padding: 0 10px 6px 10px;\n  margin: 0 0 3px 0;\n  border-radius: 0;\n  background-color: #B2A28B;\n}\n#button-cluster {\n  padding: 10px 12px 6px 12px;\n}\n#time-left {\n  font-size: 150px;\n  font-family: \"Inconsolata\";\n  color: #EFFCEC;\n}\n#main {\n  flex-direction: column;\n  width: 100%;\n  background-color: #88BDBC;\n}\n#main-body {\n  flex-direction: row;\n  width: 100%;\n  justify-content: space-around;\n  flex-wrap: wrap;\n  background-color: #88BDBC;\n}\n#title {\n  flex-direction: column;\n  background-color: #254E58;\n  width: 100%;\n  padding: 5px 0 5px;\n  margin: 0 0 5px 0;\n  border-style: solid;\n  border-width: 1px;\n  border-color: #112D32;\n}\n#title h1 {\n  font-size: 42px;\n  color: #EFFCEC;\n}\n#title p {\n  font-size: 22px;\n  color: #EFFCEC;\n}\n#description {\n  flex-direction: column;\n  width: 90%;\n  background-color: #22707C;\n  margin: 12px 10px 12px 10px;\n  padding: 10px;\n  border-style: solid;\n  border-width: 1px;\n  border-color: #254E58;\n}\n#description h2 {\n  color: #EFFCEC;\n}\n#description p {\n  color: #EFFCEC;\n  margin: 10px 30px 10px 30px;\n}\n#description #source {\n  color: #F2E9D7;\n  font-style: italic;\n}\n#description a {\n  color: #F2E9D7;\n}\n* {\n  margin: 0;\n  padding: 0;\n  font-family: \"Montserrat\";\n  color: #2b2b2b;\n}\nbody {\n  background-color: #88BDBC;\n}\ndiv {\n  display: flex;\n  align-items: center;\n}\nbutton {\n  padding: 4px 4px 4px 4px;\n  margin: 4px 4px 4px 4px;\n  border-radius: 5px;\n  font-size: 16px;\n  width: 9em;\n}\nh2 {\n  margin: 3px 0 3px 0;\n  font-size: 26px;\n  font-weight: 1000;\n}\nh3 {\n  margin: 10px 0 0 0;\n}\n#app {\n  flex-direction: column;\n  width: 100%;\n}\n", ""]);
+exports.push([module.i, "#input {\n  display: flex;\n  flex-direction: column;\n  background-color: #B2A28B;\n  width: 300px;\n  margin: 10px 40px 10px 0;\n  padding: 6px 0 6px 0;\n  border-style: solid;\n  border-width: thin;\n  border-radius: 7px;\n  border-color: #938876;\n  box-shadow: 2px 2px 4px #254E58;\n}\n#input h2 {\n  margin: 6px 0 6px 0;\n  color: #3D3D3D;\n}\n#input h3 {\n  color: #3D3D3D;\n}\n#input #input-error {\n  white-space: pre;\n  color: red;\n}\n#input-form {\n  display: flex;\n  max-width: 600px;\n  padding: 15px 5px 15px 15px;\n  flex-direction: column;\n}\n.input-group {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\n.input-num {\n  margin: 5px;\n  padding-left: 5px;\n  height: 24px;\n  font-size: 17px;\n  width: 3em;\n}\n#display {\n  display: flex;\n  flex-direction: column;\n  background-color: #F9F1E0;\n  margin: 10px 0 10px 40px;\n  padding: 6px 0 6px 0;\n  border-style: solid;\n  border-width: thin;\n  border-radius: 7px;\n  border-color: #B2A28B;\n  box-shadow: 2px 2px 4px #254E58;\n}\n#time-left-container {\n  flex-direction: column;\n  background-color: #4F4A41;\n  margin: 12px 0 4px 0;\n  padding: 0px 22px 3px 22px;\n  border-style: solid;\n  border-width: 1px;\n  border-color: #B2A28B;\n}\n#time-left-container #time-left-container-bottom {\n  justify-content: center;\n  width: 100%;\n  padding: 0 10px 6px 10px;\n  margin: 0 0 3px 0;\n  border-radius: 0;\n  background-color: #B2A28B;\n}\n#button-cluster {\n  padding: 10px 12px 6px 12px;\n}\n#time-left {\n  font-size: 150px;\n  font-family: \"Inconsolata\";\n  color: #EFFCEC;\n}\n#main {\n  flex-direction: column;\n  width: 100%;\n  background-color: #88BDBC;\n}\n#main-body {\n  flex-direction: row;\n  width: 100%;\n  justify-content: space-around;\n  flex-wrap: wrap;\n  background-color: #88BDBC;\n}\n#title {\n  flex-direction: column;\n  background-color: #254E58;\n  width: 100%;\n  padding: 5px 0 5px;\n  margin: 0 0 20px 0;\n  border-style: solid;\n  border-width: thin;\n  border-color: #112D32;\n  box-shadow: 0 2px 4px #254E58;\n}\n#title h1 {\n  font-size: 42px;\n  color: #EFFCEC;\n}\n#title p {\n  font-size: 22px;\n  color: #EFFCEC;\n}\n#description {\n  flex-direction: column;\n  width: 90%;\n  background-color: #22707C;\n  margin: 45px 10px 25px 10px;\n  padding: 10px;\n  border-style: solid;\n  border-width: thin;\n  border-radius: 7px;\n  border-color: #254E58;\n  box-shadow: 2px 2px 4px #254E58;\n}\n#description h2 {\n  color: #EFFCEC;\n}\n#description p {\n  color: #EFFCEC;\n  margin: 10px 30px 10px 30px;\n}\n#description #source {\n  color: #F2E9D7;\n  font-style: italic;\n}\n#description a {\n  color: #F2E9D7;\n}\n* {\n  margin: 0;\n  padding: 0;\n  font-family: \"Montserrat\";\n  color: #2b2b2b;\n}\nbody {\n  background-color: #88BDBC;\n}\ndiv {\n  display: flex;\n  align-items: center;\n}\nbutton {\n  padding: 4px 4px 4px 4px;\n  margin: 4px 4px 4px 4px;\n  border-radius: 5px;\n  font-size: 16px;\n  width: 9em;\n}\nh2 {\n  margin: 3px 0 3px 0;\n  font-size: 26px;\n  font-weight: 1000;\n}\nh3 {\n  margin: 10px 0 0 0;\n}\n#app {\n  flex-direction: column;\n  width: 100%;\n}\n", ""]);
 
 // exports
 
