@@ -7,6 +7,7 @@ import Title from '../Title/Title';
 import Input from '../Input/Input';
 import Display from '../Display/Display';
 import Description from '../Description/Description';
+import Footer from '../Footer/Footer';
 
 class Main extends Component {
   constructor() {
@@ -68,7 +69,9 @@ class Main extends Component {
       this.state.chime.play();
     };
     play();
-    setTimeout(play, 2300);
+    setTimeout(play, 2500);
+    setTimeout(play, 5600);
+    setTimeout(play, 8100);
   }
 
   toggleSession() {
@@ -129,6 +132,7 @@ class Main extends Component {
           />
         </div>
         <Description />
+        <Footer />
       </div>
     );
   }

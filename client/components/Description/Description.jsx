@@ -7,7 +7,7 @@ const para2 = 'The technique has been widely popularized by dozens of apps and w
 const Description = () => (
   <div id="description">
     <h2>About the Pomodoro Method</h2>
-    <p>
+    <p id="description-body">
       &nbsp;&nbsp;&nbsp;{para1}
       <br /> <br />
       &nbsp;&nbsp;&nbsp;{para2}
