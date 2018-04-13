@@ -1,0 +1,38 @@
+// Description
+
+#description {
+  flex-direction: column;
+  width: 75%;
+  background-color: @light-mid-green;
+  margin: 45px 10px 25px 10px;
+  padding: 10px;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 7px;
+  border-color: @mid-green;
+  box-shadow: 2px 2px 4px @mid-green;
+  h2 {
+    color: @white-brown;
+    margin: 15px 0 12px 0;
+  }
+  p {
+    color: @white-brown;
+    margin: 10px 0 10px 0;
+  }
+  #description-body {
+    width: 84%;
+  }
+  #source {
+    color: @alt-white-brown;
+    font-style: italic;
+  }
+  a {
+    color: @alt-white-brown;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  #description {
+    display: none;
+  }
+}
