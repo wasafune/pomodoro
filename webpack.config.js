@@ -11,8 +11,6 @@ module.exports = {
   entry: './src/index.jsx',
   output: {
     path: path.resolve('dist'),
-    // bugs with github pages if public path
-    // publicPath: '/',
     filename: 'bundle.js',
   },
   module: {

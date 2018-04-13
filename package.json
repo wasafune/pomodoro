@@ -37,7 +37,8 @@
     "src": "webpack --config webpack.config.js",
     "webpack": "webpack --watch --config webpack.config.js",
     "predeploy": "npm run src",
-    "deploy": "gh-pages -d src"
+    "deploy": "gh-pages -d src",
+    "build" : "webpack --config webpack.config.js"
   },
   "author": "Peter Lee",
   "license": "ISC"
