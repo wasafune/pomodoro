@@ -19433,7 +19433,7 @@ var Main = function (_Component) {
       sessionCount: 0,
       reset: true,
       error: ' ',
-      chime: new Audio('http://soundbible.com/grab.php?id=1619&type=mp3')
+      chime: new Audio('https://raw.githubusercontent.com/wasafune/pomodoro/gh-pages/notif-chime.mp3')
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.handleReset = _this.handleReset.bind(_this);
