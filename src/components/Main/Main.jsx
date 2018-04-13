@@ -22,7 +22,7 @@ class Main extends Component {
       sessionCount: 0,
       reset: true,
       error: ' ',
-      chime: new Audio('http://soundbible.com/grab.php?id=1619&type=mp3'),
+      chime: new Audio('https://raw.githubusercontent.com/wasafune/pomodoro/gh-pages/notif-chime.mp3'),
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleReset = this.handleReset.bind(this);
