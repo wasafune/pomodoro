@@ -34,10 +34,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "src": "webpack --config webpack.config.js",
+    "dist": "webpack --config webpack.config.js",
     "webpack": "webpack --watch --config webpack.config.js",
-    "predeploy": "npm run src",
-    "deploy": "gh-pages -d src",
+    "predeploy": "npm run dist",
+    "deploy": "gh-pages -d dist",
     "build" : "webpack --config webpack.config.js"
   },
   "author": "Peter Lee",
