@@ -19544,7 +19544,7 @@ var Main = function (_Component) {
 
       console.log(e.target);
       if (volume === 10 && value === '+') return;
-      if (volume === 1 && value === '-') return;
+      if (volume === 0 && value === '-') return;
       var newVol = value === '+' ? volume + 1 : volume - 1;
       console.log('new vol', newVol);
       chime.volume = newVol / 10;
