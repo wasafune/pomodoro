@@ -19434,7 +19434,8 @@ var Main = function (_Component) {
       reset: true,
       error: ' ',
       chime: new Audio('https://raw.githubusercontent.com/wasafune/pomodoro/gh-pages/notif-chime.mp3'),
-      volume: 10
+      volume: 10,
+      muted: false
     };
     // set default volume for chime
     _this.handleSubmit = _this.handleSubmit.bind(_this);
@@ -19443,6 +19444,7 @@ var Main = function (_Component) {
     _this.toggleSession = _this.toggleSession.bind(_this);
     _this.toggleStatus = _this.toggleStatus.bind(_this);
     _this.handleVolumeChange = _this.handleVolumeChange.bind(_this);
+    _this.handleMute = _this.handleMute.bind(_this);
     _this.setState = _this.setState.bind(_this);
     return _this;
   }
@@ -19542,13 +19544,23 @@ var Main = function (_Component) {
           chime = _state.chime,
           volume = _state.volume;
 
-      console.log(e.target);
       if (volume === 10 && value === '+') return;
       if (volume === 0 && value === '-') return;
       var newVol = value === '+' ? volume + 1 : volume - 1;
-      console.log('new vol', newVol);
       chime.volume = newVol / 10;
       this.setState({ volume: newVol });
+    }
+  }, {
+    key: 'handleMute',
+    value: function handleMute() {
+      var _state2 = this.state,
+          chime = _state2.chime,
+          volume = _state2.volume,
+          muted = _state2.muted;
+
+      var currVol = muted ? volume / 10 : 0;
+      chime.volume = currVol;
+      this.setState({ muted: !muted });
     }
   }, {
     key: 'render',
@@ -19572,11 +19584,13 @@ var Main = function (_Component) {
             reset: state.reset,
             time: time,
             volume: state.volume,
+            muted: state.muted,
             toggleStatus: this.toggleStatus,
             toggleSession: this.toggleSession,
             handleReset: this.handleReset,
             handleChime: this.handleChime,
-            handleVolumeChange: this.handleVolumeChange
+            handleVolumeChange: this.handleVolumeChange,
+            handleMute: this.handleMute
           }),
           _react2.default.createElement(_Input2.default, {
             error: state.error,
@@ -20567,7 +20581,9 @@ var Display = function (_Component) {
       var currentSession = props.currentSession;
       var _props = this.props,
           volume = _props.volume,
-          handleVolumeChange = _props.handleVolumeChange;
+          muted = _props.muted,
+          handleVolumeChange = _props.handleVolumeChange,
+          handleMute = _props.handleMute;
 
 
       var minutes = Math.floor(state.time / 60);
@@ -20623,7 +20639,12 @@ var Display = function (_Component) {
             )
           )
         ),
-        _react2.default.createElement(_Volume2.default, { volume: volume, handleVolumeChange: handleVolumeChange }),
+        _react2.default.createElement(_Volume2.default, {
+          volume: volume,
+          muted: muted,
+          handleVolumeChange: handleVolumeChange,
+          handleMute: handleMute
+        }),
         _react2.default.createElement(
           'div',
           { id: 'button-cluster' },
@@ -20715,8 +20736,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // }
 
 var Volume = function Volume(props) {
-  var handleVolumeChange = props.handleVolumeChange,
-      volume = props.volume;
+  var volume = props.volume,
+      muted = props.muted,
+      handleVolumeChange = props.handleVolumeChange,
+      handleMute = props.handleMute;
 
   return _react2.default.createElement(
     "div",
@@ -20725,7 +20748,8 @@ var Volume = function Volume(props) {
       "h3",
       null,
       "Volume: ",
-      volume * 10
+      muted ? 0 : volume * 10,
+      "%"
     ),
     _react2.default.createElement(
       "button",
@@ -20736,6 +20760,11 @@ var Volume = function Volume(props) {
       "button",
       { value: "-", onClick: handleVolumeChange },
       "-"
+    ),
+    _react2.default.createElement(
+      "button",
+      { onClick: handleMute },
+      muted ? 'Unmute' : 'Mute'
     )
   );
 };
