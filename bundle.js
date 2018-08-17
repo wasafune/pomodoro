@@ -893,7 +893,7 @@ var _App = __webpack_require__(26);
 
 var _App2 = _interopRequireDefault(_App);
 
-__webpack_require__(36);
+__webpack_require__(35);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19396,11 +19396,11 @@ var _Display = __webpack_require__(32);
 
 var _Display2 = _interopRequireDefault(_Display);
 
-var _Description = __webpack_require__(34);
+var _Description = __webpack_require__(33);
 
 var _Description2 = _interopRequireDefault(_Description);
 
-var _Footer = __webpack_require__(35);
+var _Footer = __webpack_require__(34);
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
@@ -19433,18 +19433,13 @@ var Main = function (_Component) {
       sessionCount: 0,
       reset: true,
       error: ' ',
-      chime: new Audio('https://raw.githubusercontent.com/wasafune/pomodoro/gh-pages/notif-chime.mp3'),
-      volume: 10,
-      muted: false
+      chime: new Audio('https://raw.githubusercontent.com/wasafune/pomodoro/gh-pages/notif-chime.mp3')
     };
-    // set default volume for chime
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.handleReset = _this.handleReset.bind(_this);
     _this.handleChime = _this.handleChime.bind(_this);
     _this.toggleSession = _this.toggleSession.bind(_this);
     _this.toggleStatus = _this.toggleStatus.bind(_this);
-    _this.handleVolumeChange = _this.handleVolumeChange.bind(_this);
-    _this.handleMute = _this.handleMute.bind(_this);
     _this.setState = _this.setState.bind(_this);
     return _this;
   }
@@ -19537,32 +19532,6 @@ var Main = function (_Component) {
       }
     }
   }, {
-    key: 'handleVolumeChange',
-    value: function handleVolumeChange(e) {
-      var value = e.target.value;
-      var _state = this.state,
-          chime = _state.chime,
-          volume = _state.volume;
-
-      if (volume === 10 && value === '+') return;
-      if (volume === 0 && value === '-') return;
-      var newVol = value === '+' ? volume + 1 : volume - 1;
-      chime.volume = newVol / 10;
-      this.setState({ volume: newVol });
-    }
-  }, {
-    key: 'handleMute',
-    value: function handleMute() {
-      var _state2 = this.state,
-          chime = _state2.chime,
-          volume = _state2.volume,
-          muted = _state2.muted;
-
-      var currVol = muted ? volume / 10 : 0;
-      chime.volume = currVol;
-      this.setState({ muted: !muted });
-    }
-  }, {
     key: 'render',
     value: function render() {
       var state = this.state;
@@ -19583,14 +19552,10 @@ var Main = function (_Component) {
             sessionCount: state.sessionCount,
             reset: state.reset,
             time: time,
-            volume: state.volume,
-            muted: state.muted,
             toggleStatus: this.toggleStatus,
             toggleSession: this.toggleSession,
             handleReset: this.handleReset,
-            handleChime: this.handleChime,
-            handleVolumeChange: this.handleVolumeChange,
-            handleMute: this.handleMute
+            handleChime: this.handleChime
           }),
           _react2.default.createElement(_Input2.default, {
             error: state.error,
@@ -20461,10 +20426,6 @@ var _propTypes = __webpack_require__(13);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Volume = __webpack_require__(33);
-
-var _Volume2 = _interopRequireDefault(_Volume);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -20579,11 +20540,6 @@ var Display = function (_Component) {
       var state = this.state,
           props = this.props;
       var currentSession = props.currentSession;
-      var _props = this.props,
-          volume = _props.volume,
-          muted = _props.muted,
-          handleVolumeChange = _props.handleVolumeChange,
-          handleMute = _props.handleMute;
 
 
       var minutes = Math.floor(state.time / 60);
@@ -20639,12 +20595,6 @@ var Display = function (_Component) {
             )
           )
         ),
-        _react2.default.createElement(_Volume2.default, {
-          volume: volume,
-          muted: muted,
-          handleVolumeChange: handleVolumeChange,
-          handleMute: handleMute
-        }),
         _react2.default.createElement(
           'div',
           { id: 'button-cluster' },
@@ -20726,68 +20676,6 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// class Volume extends React.component {
-//   constructor(props) {
-//     super(props)
-//     this.state = {
-//       volume
-//     }
-//   }
-// }
-
-var Volume = function Volume(props) {
-  var volume = props.volume,
-      muted = props.muted,
-      handleVolumeChange = props.handleVolumeChange,
-      handleMute = props.handleMute;
-
-  return _react2.default.createElement(
-    "div",
-    { className: "volume-controls" },
-    _react2.default.createElement(
-      "h3",
-      null,
-      "Volume: ",
-      muted ? 0 : volume * 10,
-      "%"
-    ),
-    _react2.default.createElement(
-      "button",
-      { value: "+", onClick: handleVolumeChange },
-      "+"
-    ),
-    _react2.default.createElement(
-      "button",
-      { value: "-", onClick: handleVolumeChange },
-      "-"
-    ),
-    _react2.default.createElement(
-      "button",
-      { onClick: handleMute },
-      muted ? 'Unmute' : 'Mute'
-    )
-  );
-};
-
-exports.default = Volume;
-
-/***/ }),
-/* 34 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var para1 = 'The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. The technique uses a timer to break down work into intervals, traditionally 25 minutes in length, separated by short breaks. These intervals are named pomodoros, the plural in English of the Italian word pomodoro (tomato), after the tomato-shaped kitchen timer that Cirillo used as a university student.';
 
 var para2 = 'The technique has been widely popularized by dozens of apps and websites providing timers and instructions. Closely related to concepts such as timeboxing and iterative and incremental development used in software design, the method has been adopted in pair programming contexts.';
@@ -20833,7 +20721,7 @@ var Description = function Description() {
 exports.default = Description;
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20865,11 +20753,11 @@ var Footer = function Footer() {
 exports.default = Footer;
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(37);
+var content = __webpack_require__(36);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -20883,7 +20771,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(39)(content, options);
+var update = __webpack_require__(38)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -20915,10 +20803,10 @@ if(false) {
 }
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(38)(false);
+exports = module.exports = __webpack_require__(37)(false);
 // imports
 
 
@@ -20929,7 +20817,7 @@ exports.push([module.i, "#input {\n  display: flex;\n  flex-direction: column;\n
 
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports) {
 
 /*
@@ -21011,7 +20899,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 39 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -21077,7 +20965,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(40);
+var	fixUrls = __webpack_require__(39);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -21393,7 +21281,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 40 */
+/* 39 */
 /***/ (function(module, exports) {
 
 
